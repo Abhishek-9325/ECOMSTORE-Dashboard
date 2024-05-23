@@ -10,13 +10,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
   Card,
   CardContent,
   CardDescription,
@@ -26,22 +19,14 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
-import {
-  createProduct,
-  editCategory,
-  editProduct,
-  getCategoryById,
-  getProductById,
-} from "@/http/api";
+import { editCategory, getCategoryById } from "@/http/api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { LoaderCircle } from "lucide-react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -62,7 +47,7 @@ const EditCategory = () => {
   const navigate = useNavigate();
   const { categoryId } = useParams();
 
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["category", categoryId],
     queryFn: () => getCategoryById(categoryId),
     staleTime: 10000, // in Milli-seconds

@@ -42,7 +42,7 @@ const ProductsPage = () => {
   // @ts-ignore
   const navigate = useNavigate();
 
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["products"],
     queryFn: getProducts,
     staleTime: 10000, // in Milli-seconds

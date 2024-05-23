@@ -76,11 +76,7 @@ const CreateProduct = () => {
 
   const queryClient = useQueryClient();
 
-  const {
-    data: categoryData,
-    isLoading,
-    isError,
-  } = useQuery({
+  const { data: categoryData } = useQuery({
     queryKey: ["category"],
     queryFn: getCategories,
     staleTime: 10000, // in Milli-seconds

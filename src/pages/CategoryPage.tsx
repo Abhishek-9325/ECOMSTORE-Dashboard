@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -43,7 +42,7 @@ const CategoryPage = () => {
 
   const navigate = useNavigate();
 
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["category"],
     queryFn: getCategories,
     staleTime: 10000, // in Milli-seconds

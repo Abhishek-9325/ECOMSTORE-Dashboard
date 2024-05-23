@@ -10,13 +10,6 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
   Card,
   CardContent,
   CardDescription,
@@ -26,7 +19,6 @@ import {
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -35,7 +27,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
-import { createProduct, editProduct, getProductById } from "@/http/api";
+import { editProduct, getProductById } from "@/http/api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { LoaderCircle } from "lucide-react";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -65,7 +57,7 @@ const EditProduct = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
 
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["product", productId],
     queryFn: () => getProductById(productId),
     staleTime: 10000, // in Milli-seconds
